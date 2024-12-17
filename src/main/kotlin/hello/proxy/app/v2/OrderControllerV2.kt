@@ -6,14 +6,14 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 class OrderControllerV2(
-    private val orderService: OrderServiceV2
+    private val orderService: OrderServiceV2?
 ) {
 
     private val log = logger<OrderControllerV2>()
 
     @GetMapping("/v2/request")
     fun request(itemId: String): String {
-        orderService.orderItem(itemId)
+        orderService?.orderItem(itemId)
         return "ok"
     }
 
