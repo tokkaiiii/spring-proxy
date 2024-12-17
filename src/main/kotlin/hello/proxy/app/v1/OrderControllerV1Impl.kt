@@ -10,8 +10,6 @@ class OrderControllerV1Impl(
     private val log = logger<OrderControllerV1>()
 
     override fun request(itemId: String): String {
-        println("request")
-        log.info("requesting item {}", itemId)
         orderService.orderItem(itemId)
         return "ok"
     }
