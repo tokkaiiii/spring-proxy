@@ -24,7 +24,7 @@ class LogTraceFilterHandler(
 
         var status: TraceStatus? = null
         try {
-            val message = method?.declaringClass?.simpleName + "." + method?.name + "()"
+            val message = method.declaringClass?.simpleName + "." + method.name + "()"
             status = logTrace.begin(message)
             val result = method?.invoke(target, *(args ?: emptyArray()))
             logTrace.end(status)
