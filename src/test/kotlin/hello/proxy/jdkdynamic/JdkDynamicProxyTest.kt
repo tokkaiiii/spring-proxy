@@ -9,7 +9,7 @@ class JdkDynamicProxyTest {
     private val log = logger<JdkDynamicProxyTest>()
 
     @Test
-    fun dynamicA(){
+    fun dynamicA() {
         val target = AImpl()
         val handler = TimeInvocationHandler(target)
 
@@ -20,12 +20,14 @@ class JdkDynamicProxyTest {
         ) as AInterface
 
         proxy.call()
-        log.info("targetClass=${target.javaClass}")
-        log.info("proxyClass=${proxy.javaClass}")
+        log.run {
+            info("proxyClass=${proxy.javaClass}")
+            info("targetClass=${target.javaClass}")
+        }
     }
 
     @Test
-    fun dynamicB(){
+    fun dynamicB() {
         val target = BImpl()
         val handler = TimeInvocationHandler(target)
         val proxy = Proxy.newProxyInstance(
