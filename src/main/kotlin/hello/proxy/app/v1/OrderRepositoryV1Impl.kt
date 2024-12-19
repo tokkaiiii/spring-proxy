@@ -2,7 +2,7 @@ package hello.proxy.app.v1
 
 import java.lang.Thread.sleep
 
-class OrderRepositoryV1Impl : OrderRepositoryV1 {
+open class OrderRepositoryV1Impl : OrderRepositoryV1 {
     override fun save(itemId: String) {
         // 저장 로직
         if (itemId == "ex"){
