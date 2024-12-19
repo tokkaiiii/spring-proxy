@@ -16,7 +16,7 @@ class LogTraceAspect(
 
     // advisor ( advice + pointcut )
     @Around("execution(* hello.proxy.app..*(..))")
-    fun execute(joinPoint: ProceedingJoinPoint): Any {
+    fun execute(joinPoint: ProceedingJoinPoint): Any? {
         // advice 로직 ( 부가기능) 넣으면 됨
         var status: TraceStatus? = null
         try {
