@@ -71,7 +71,7 @@ class ThreadLocalLogTrace : LogTrace {
     private fun releaseTraceId() {
         val traceId = traceIdHolder.get()
         if (traceId == null) {
-            throw NullPointerException("traceIdHolder == null")
+            throw NullPointerException("traceId not set")
         } else if (traceId.isFirstLevel()) {
             traceIdHolder.remove()
         } else {
